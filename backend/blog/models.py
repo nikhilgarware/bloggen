@@ -5,9 +5,9 @@ from django.db import models
 
 
 class Blog(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, unique=True, null=False)
     content = models.TextField()
-    created_by = models.CharField(max_length=255)
+    created_by = models.CharField(max_length=255, null=False)
     tags = models.CharField(max_length=255)
     published = models.BooleanField(default=False)
     updated_by = models.CharField(max_length=266)
