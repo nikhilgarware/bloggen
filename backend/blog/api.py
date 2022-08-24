@@ -5,7 +5,7 @@ from blog import models
 
 
 class BlogReleatedApi(APIView):
-
+    # get request
     def get(self, request, format=None):
         all_blogs = models.Blog.objects.all().values()
         return Response({"all_blogs": all_blogs}, status=status.HTTP_200_OK)
