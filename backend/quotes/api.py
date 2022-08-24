@@ -1,19 +1,19 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from blog import models
+from quotes import models
 
 
-class BlogReleatedApi(APIView):
+class QuotesReleatedApi(APIView):
 
     def get(self, request, format=None):
-        all_blogs = models.Blog.objects.all().values()
-        return Response({"all_blogs": all_blogs}, status=status.HTTP_200_OK)
+        all_quotes = models.Quotes.objects.all().values()
+        return Response({"all quotes": all_quotes}, status=status.HTTP_200_OK)
 
     def post(self, request, format=None):
         try:
-            models.Blog.objects.create(
-                title=request.data["title"], content=request.data["content"])
+            models.Quotes.objects.create(
+                quote=request.data["quote"], author=request.data["author"], genre=request.data["genre"])
         except Exception as e:
             return Response({"message": "There was some error while posting the data",
                              "status": status.HTTP_400_BAD_REQUEST, "Error Message": e})
