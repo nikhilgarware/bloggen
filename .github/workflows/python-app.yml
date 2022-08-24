@@ -30,4 +30,5 @@ jobs:
 
       - name: Test with Unittest
         run: |
+          cd backend
           python manage.py test
