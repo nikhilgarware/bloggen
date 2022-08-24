@@ -7,4 +7,4 @@ class BasicTestCase(TestCase):
         self.assertEqual(2+2, 4)
 
     def test_check_incorrect_result(self):
-        self.assertNotEqual(1+2, 5)
+        self.assertNotEqual(1+2, 4)
